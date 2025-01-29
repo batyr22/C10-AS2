@@ -16,10 +16,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get(' ', [HomeController::class, 'index'])->name('hotels.index');
 
-Route::get('', [HomeController::class, 'index'])->name('home');
 
-Route::resource('/hotels', Hotelcontroller::class);
-Route::resource('/reviews', ReviewController::class);
-Route::resource('/bookings', BookingController::class);
+Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
+Route::get('/hotels/{hotel}', [HotelController::class, 'show'])->name('hotels.show');
 
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+
+Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+Route::get('/bookings/{booking}', [BookingController::class, 'show'])->name('bookings.show');

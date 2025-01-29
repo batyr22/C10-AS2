@@ -9,10 +9,17 @@ class Review extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['client_id', 'room_id', 'ratings'];
+    protected $fillable = [
+        'client_id',
+        'room_id',
+        'ratings'];
 
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class);
+    }
 
-    public function clients()
+    public function client()
     {
         return $this->belongsTo(Client::class);
     }

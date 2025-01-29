@@ -13,6 +13,6 @@ class HomeController extends Controller
             ->orderBy('name')
             ->get();
 
-        return view('home.index', compact('hotels'));
+        return view('hotels.index', compact('hotels'));
     }
 }

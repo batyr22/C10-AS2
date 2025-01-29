@@ -9,13 +9,24 @@ class Booking extends Model
 {
     use HasFactory;
 
-    protected $guarded = [
-        'id',
-    ];
+    protected $fillable = [
+        'client_id',
+        'room_id',
+        'booking_date',
+        'check_in',
+        'check_out',
+        'status',
+        'amount',
+        'payment_date'];
 
-    public function clients()
+    public function client()
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class);
     }
 
     public function room()

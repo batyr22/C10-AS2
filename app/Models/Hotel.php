@@ -9,12 +9,21 @@ class Hotel extends Model
 {
     use HasFactory;
 
-    protected $guarded = [
-        'id',
-    ];
+    protected $fillable = [
+        'name'];
 
     public function rooms()
     {
         return $this->hasMany(Room::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }
